@@ -1,0 +1,1 @@
+seed = 1zoomOut = 40Octaves = 8persistence = 0.5

@@ -1,0 +1,8 @@
+Z:\Data\C#\XNA\Experiments\ScapWars\ScapWars\ScapWars\obj\x86\Release\ResolveAssemblyReference.cache
+Z:\Data\C#\XNA\Experiments\ScapWars\ScapWars\ScapWars\obj\x86\Release\Microsoft.Xna.Framework.RuntimeProfile.txt
+Z:\Data\C#\XNA\Experiments\ScapWars\ScapWars\ScapWars\bin\x86\Release\Scrap Wars.exe
+Z:\Data\C#\XNA\Experiments\ScapWars\ScapWars\ScapWars\bin\x86\Release\Scrap Wars.pdb
+Z:\Data\C#\XNA\Experiments\ScapWars\ScapWars\ScapWars\bin\x86\Out\ScrapWars.exe
+Z:\Data\C#\XNA\Experiments\ScapWars\ScapWars\ScapWars\bin\x86\Out\ScrapWars.pdb
+Z:\Data\C#\XNA\Experiments\ScapWars\ScapWars\ScapWars\obj\x86\Release\ScrapWars.exe
+Z:\Data\C#\XNA\Experiments\ScapWars\ScapWars\ScapWars\obj\x86\Release\ScrapWars.pdb
