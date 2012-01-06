@@ -16,9 +16,10 @@ namespace ScapWars.Map
 
         public MapCreator( )
         {
-            Random rng = new Random( );
-
             mapParams = new MapParams( );
+            rng = new Random( );
+
+            SetDefaultParams( );
         }
 
         public void SetDefaultParams( )
@@ -30,19 +31,48 @@ namespace ScapWars.Map
             mapParams.octaves = 6;
             mapParams.persistence = 0.5;
             mapParams.frequencyMulti = 2;
-            mapParams.zoomOut = 40;
+            mapParams.zoomOut = 20;
+
+            mapParams.waterLevel = 0.35;
+            mapParams.sandLevel = 0.45;
+            mapParams.grassLevel = 0.6;
+
+            mapParams.maxRivers = 3;
+
+            mapParams.volcanoRadius = 10;
         }
 
-        public Map CreateMap( )    
+        public GameMap CreateMap( )    
         {
-            Map newMap = new Map(mapParams.size);
+            GameMap newMap = new GameMap(mapParams.size);
+
+            rng = new Random( mapParams.seed );
 
             CreateBasics( newMap );
+            AddRivers( newMap );
+            CreateBossVolcano( newMap );
 
             return newMap;
         }
 
-        private void CreateBasics( Map newMap )
+        private void CreateBasics( GameMap newMap )
+        {
+            double[,] noise = GetPositiveNoise( );            
+
+            Tile currTile;
+
+            for( int x = 0; x < newMap.Size.X; x++ )
+            {
+                for( int y = 0; y < newMap.Size.Y; y++ )
+                {
+                    currTile = TileFromValue(noise[x,y]);
+                    newMap.SetTile(new Point(x,y), currTile); 
+                }
+            }
+        }
+
+        // PerlinNoise2D produces values from -1 to 1. This forces that noise into the range 0.0 to 1.0
+        private double[,] GetPositiveNoise( )
         {
             double[,] noise = new double[mapParams.size.X, mapParams.size.Y];
 
@@ -53,32 +83,132 @@ namespace ScapWars.Map
                                           mapParams.octaves,
                                           mapParams.seed );
 
-            Tile currTile;
-
             for( int x = 0; x < mapParams.size.X; x++ )
             {
                 for( int y = 0; y < mapParams.size.Y; y++ )
                 {
-                    currTile = TileFromValue(noise[x,y]+0.5);
-                    newMap.SetTile(new Point(x,y), currTile); 
+                    noise[x,y] += 1;
+                    noise[x,y] /= 2;
                 }
             }
+
+            return noise;
         }
 
         private Tile TileFromValue( double value )
         {
             Tile theTile;
 
-            if( value < 0.2 )
+            if( value < mapParams.waterLevel )
                 theTile = Tile.Water;
-            else if( value < 0.3 )
+            else if( value < mapParams.sandLevel )
                 theTile = Tile.Sand;
-            else if( value < 0.6 )            
+            else if( value < mapParams.grassLevel )            
                 theTile = Tile.Grass;
             else
                 theTile = Tile.Dirt;
             
             return theTile;
+        }
+
+        private void AddRivers( GameMap newMap )
+        {
+            Point currLoc = new Point( );
+
+            for( int k = 0; k < mapParams.maxRivers; k++ )
+            {
+                currLoc.X = rng.Next( newMap.Size.X-1 );
+                currLoc.Y = rng.Next( newMap.Size.Y-1 );
+
+                CreateRiver( newMap, currLoc );
+
+            }
+        }
+
+        private void CreateRiver( GameMap newMap, Point start )
+        {
+            Point currLoc = start;
+
+            Vector2 leadingEdge = new Vector2( (float)rng.NextDouble()-0.5f, (float)rng.NextDouble( )-0.5f);            
+
+            leadingEdge.Normalize( );
+
+            while( currLoc.X > -1 &&
+                   currLoc.Y > -1 &&
+                   currLoc.X < newMap.Size.X &&
+                   currLoc.Y < newMap.Size.Y )
+            {
+                newMap.SetTile( currLoc, Tile.Water );
+
+                leadingEdge += new Vector2( ((float)rng.NextDouble()-0.5f)/1.5f, ((float)rng.NextDouble( )-0.5f)/1.5f );
+                leadingEdge.Normalize( );
+
+                currLoc.X += CalcChangeFromLead( leadingEdge.X );
+                currLoc.Y += CalcChangeFromLead( leadingEdge.Y );
+            }
+        }
+
+        private int CalcChangeFromLead( float lead )
+        {
+            if( lead > 0.33 )
+                return 1;
+            else if( lead > -0.33 )
+                return 0;
+            else
+                return -1;
+        }
+        
+        private void CreateBossVolcano( GameMap newMap )
+        {
+            Point volcanoCenter = new Point( rng.Next(mapParams.volcanoRadius, newMap.Size.X - mapParams.volcanoRadius),
+                                             rng.Next(mapParams.volcanoRadius, newMap.Size.Y - mapParams.volcanoRadius) );
+
+            newMap.BossPoint = volcanoCenter;
+
+            int volcanoSquares = (int)Math.Pow(mapParams.volcanoRadius*Math.PI,2);
+
+            int lavaSquares = volcanoSquares/4;
+            
+            CreateCircle( newMap, volcanoCenter, volcanoSquares, Tile.Volcano );
+            CreateCircle( newMap, volcanoCenter, lavaSquares, Tile.Lava );
+
+            
+        }
+
+        private void CreateCircle( GameMap newMap, Point center, int numSquares, Tile tileType )
+        {
+            int radius = (int)Math.Sqrt(numSquares/Math.PI);
+
+            int currLineLength;
+
+            Point currPoint;
+
+            for( int k = 0; k < radius; k++ )
+            {
+                currLineLength = radius - 2*k;
+                currPoint = new Point( center.X - currLineLength/2, center.Y+k );
+
+                for( int j = 0; j < currLineLength; j++ )
+                {
+                    currPoint.X++;
+                    newMap.SetTile( currPoint, tileType );
+                }
+            }
+            for( int k = 0; k < radius; k++ )
+            {
+                currLineLength = radius - 2*k;
+                currPoint = new Point( center.X - currLineLength/2, center.Y-k );
+
+                for( int j = 0; j < currLineLength; j++ )
+                {
+                    currPoint.X++;
+                    newMap.SetTile( currPoint, tileType );
+                }
+            }
+        }
+
+        private void SetSpawn( GameMap newMap )
+        {
         }
     }
 }

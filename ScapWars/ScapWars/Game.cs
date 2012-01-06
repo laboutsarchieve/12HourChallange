@@ -36,6 +36,21 @@ namespace ScapWars
         /// </summary>
         protected override void Initialize()
         {
+            MapCreator mapc = new MapCreator( );
+
+            mapc.mapParams.seed = 1;
+
+            GameMap newMap = mapc.CreateMap( );
+
+            Texture2D tex = MapExport.TexFromMap( GraphicsDevice, newMap );
+
+            Directory.CreateDirectory( "Maps/Tests/create" );
+
+            using( FileStream file = File.Open( "Maps/Tests/create/map.png", FileMode.Create ) )
+            {
+                tex.SaveAsPng( file, 200, 200 );
+            }
+
             base.Initialize();
         }
 

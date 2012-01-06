@@ -15,6 +15,15 @@ namespace ScapWars.Map
         public double frequencyMulti;
         public double persistence;
         public int octaves;
+
+        public double waterLevel;
+        public double sandLevel;
+        public double grassLevel;
         
+        public int maxRivers;
+        public int minRiverLength;
+        public int maxRiverLength;
+
+        public int volcanoRadius;
     }
 }

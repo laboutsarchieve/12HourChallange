@@ -108,7 +108,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Graph\GraphMath.cs" />
-    <Compile Include="Map\Map.cs" />
+    <Compile Include="Map\GameMap.cs" />
     <Compile Include="Map\MapCreator.cs" />
     <Compile Include="Map\MapParams.cs" />
     <Compile Include="Map\MapExport.cs" />

@@ -9,7 +9,7 @@ namespace ScapWars.Map
 {
     class MapExport
     {
-        public static Texture2D TexFromMap( GraphicsDevice graphics, Map theMap )
+        public static Texture2D TexFromMap( GraphicsDevice graphics, GameMap theMap )
         {
             Texture2D newTexture = new Texture2D( graphics, theMap.Size.X,theMap.Size.Y);
 
@@ -38,16 +38,30 @@ namespace ScapWars.Map
         {
             Color theColor;
 
-            if( theTile == Tile.Dirt )
-                theColor = Color.Brown;
-            else if( theTile == Tile.Grass )
-                theColor = Color.Green;
-            else if( theTile == Tile.Sand )
-                theColor = Color.Yellow;
-            else if( theTile == Tile.Water )
-                theColor = Color.Blue;
-            else
-                theColor = new Color(0,0,0);
+            switch( theTile )
+            {
+                case Tile.Dirt:
+                    theColor = Color.Brown;
+                    break;
+                case Tile.Grass:
+                    theColor = Color.Green;
+                    break;
+                case Tile.Sand:
+                    theColor = Color.Yellow;
+                    break;
+                case Tile.Water:
+                    theColor = Color.Blue;
+                    break;
+                case Tile.Lava:
+                    theColor = Color.Red;
+                    break;
+                case Tile.Volcano:
+                    theColor = Color.Black;
+                    break;
+                default:
+                    theColor = Color.Magenta;
+                    break;
+            }
 
             return theColor;
         }       

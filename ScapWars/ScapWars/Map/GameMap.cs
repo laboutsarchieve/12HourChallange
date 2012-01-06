@@ -12,15 +12,19 @@ namespace ScapWars.Map
         Grass,
         Sand,
         Water,
+        Volcano,
         Lava,
         Air
     }
 
-    class Map
+    class GameMap
     {
-        public Tile[,] tileMap; 
+        Tile[,] tileMap;
 
-        public Map( Point size )
+        Point spawnPoint;
+        Point bossPoint;        
+
+        public GameMap( Point size )
         {
             tileMap = new Tile[ size.X, size.Y ];
             Size = size;            
@@ -34,6 +38,18 @@ namespace ScapWars.Map
         public void SetTile( Point loc, Tile tile )
         {
             tileMap[loc.X,loc.Y] = tile;
+        }
+
+        public Point SpawnPoint
+        {
+            get { return spawnPoint; }
+            set { spawnPoint = value; }
+        }        
+
+        public Point BossPoint
+        {
+            get { return bossPoint; }
+            set { bossPoint = value; }
         }
 
         public Point Size{ get; private set; }
