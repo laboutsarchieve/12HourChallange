@@ -6,3 +6,11 @@ Z:\Data\C#\XNA\Experiments\ScapWars\ScapWars\ScapWars\bin\x86\Out\ScrapWars.exe
 Z:\Data\C#\XNA\Experiments\ScapWars\ScapWars\ScapWars\bin\x86\Out\ScrapWars.pdb
 Z:\Data\C#\XNA\Experiments\ScapWars\ScapWars\ScapWars\obj\x86\Release\ScrapWars.exe
 Z:\Data\C#\XNA\Experiments\ScapWars\ScapWars\ScapWars\obj\x86\Release\ScrapWars.pdb
+Z:\Data\C#\XNA\Experiments\ScapWars\ScapWars\ScapWars\bin\x86\Out\Content\Dirt.xnb
+Z:\Data\C#\XNA\Experiments\ScapWars\ScapWars\ScapWars\bin\x86\Out\Content\Grass.xnb
+Z:\Data\C#\XNA\Experiments\ScapWars\ScapWars\ScapWars\bin\x86\Out\Content\Lava.xnb
+Z:\Data\C#\XNA\Experiments\ScapWars\ScapWars\ScapWars\bin\x86\Out\Content\Sand.xnb
+Z:\Data\C#\XNA\Experiments\ScapWars\ScapWars\ScapWars\bin\x86\Out\Content\Water.xnb
+Z:\Data\C#\XNA\Experiments\ScapWars\ScapWars\ScapWars\bin\x86\Out\Content\BadTree.xnb
+Z:\Data\C#\XNA\Experiments\ScapWars\ScapWars\ScapWars\bin\x86\Out\Content\Volcano.xnb
+Z:\Data\C#\XNA\Experiments\ScapWars\ScapWars\ScapWars\bin\x86\Out\Content\Boulder.xnb

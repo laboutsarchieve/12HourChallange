@@ -27,5 +27,10 @@ namespace ScapWars.Map
         public int volcanoRadius;
 
         public int minDistBossSpawn;
+
+        public double percentGrassForested;
+        public double percentDirtBoulder;
+
+        public int numFactories;
     }
 }

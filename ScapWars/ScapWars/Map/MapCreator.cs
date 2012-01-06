@@ -5,7 +5,6 @@ using System.Text;
 using Microsoft.Xna.Framework;
 
 using Noise2D;
-using Graph;
 
 namespace ScapWars.Map
 {
@@ -38,24 +37,30 @@ namespace ScapWars.Map
             mapParams.sandLevel = 0.45;
             mapParams.grassLevel = 0.6;
 
-            mapParams.maxRivers = 3;
+            mapParams.maxRivers = 2;
 
             mapParams.volcanoRadius = 10;
 
             mapParams.minDistBossSpawn = 100;
+
+            mapParams.percentGrassForested = .1;
+            mapParams.percentDirtBoulder = .1;
         }
 
         public GameMap CreateMap( )    
         {
+            ObjectPlacer objectPlacer;
             GameMap newMap = new GameMap(mapParams.size);
 
             rng = new Random( mapParams.seed );
-
+            
             CreateBasics( newMap );
             AddRivers( newMap );
             CreateBossVolcano( newMap );
 
-            SetSpawn( newMap );
+            objectPlacer = new ObjectPlacer( mapParams, rng );
+
+            objectPlacer.PlaceObjects(newMap);
 
             return newMap;
         }
@@ -141,7 +146,8 @@ namespace ScapWars.Map
             while( currLoc.X > -1 &&
                    currLoc.Y > -1 &&
                    currLoc.X < newMap.Size.X &&
-                   currLoc.Y < newMap.Size.Y )
+                   currLoc.Y < newMap.Size.Y &&
+                   newMap.GetTile( currLoc ) != Tile.Water )
             {
                 newMap.SetTile( currLoc, Tile.Water );
 
@@ -165,8 +171,15 @@ namespace ScapWars.Map
         
         private void CreateBossVolcano( GameMap newMap )
         {
-            Point volcanoCenter = new Point( rng.Next(mapParams.volcanoRadius, newMap.Size.X - mapParams.volcanoRadius),
-                                             rng.Next(mapParams.volcanoRadius, newMap.Size.Y - mapParams.volcanoRadius) );
+            Point volcanoCenter;
+
+            do
+            {
+                volcanoCenter = new Point( rng.Next(mapParams.volcanoRadius, newMap.Size.X - mapParams.volcanoRadius),
+                                           rng.Next(mapParams.volcanoRadius, newMap.Size.Y - mapParams.volcanoRadius) );
+            }
+            while( newMap.GetTile( volcanoCenter ) == Tile.Water || 
+                   newMap.GetTile( volcanoCenter ) == Tile.Sand );
 
             newMap.BossPoint = volcanoCenter;
 
@@ -212,23 +225,6 @@ namespace ScapWars.Map
             }
         }
 
-        private void SetSpawn( GameMap newMap )
-        {
-            const int TIMEOUT = 500;
-            int trys = 0;
 
-            Point spawn;
-
-            do
-            {
-                spawn = new Point(rng.Next(0, newMap.Size.X-1),rng.Next(0, newMap.Size.Y-1));
-                trys++;
-            }
-            while( newMap.GetTile(spawn) != Tile.Water &&
-                   GraphMath.DistanceBetweenPoints( spawn, newMap.BossPoint ) > mapParams.minDistBossSpawn &&
-                   trys < TIMEOUT );
-                   
-            newMap.SpawnPoint = spawn;            
-        }
     }
 }

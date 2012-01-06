@@ -11,6 +11,8 @@ using Microsoft.Xna.Framework.Media;
 
 using ScapWars.Map;
 using System.IO;
+using ScapWars.View;
+using ScapWars.Object;
 
 namespace ScapWars
 {
@@ -18,9 +20,12 @@ namespace ScapWars
     /// This is the main type for your game
     /// </summary>
     public class Game : Microsoft.Xna.Framework.Game
-    {
+    {        
         GraphicsDeviceManager graphics;
-        SpriteBatch spriteBatch;
+
+        GameMap map;
+        Display display;
+        Controller controller;
 
         public Game()
         {
@@ -36,22 +41,42 @@ namespace ScapWars
         /// </summary>
         protected override void Initialize()
         {
+            MapParams createdMapParams;
+
+            display = new Display(GraphicsDevice, Content, Window );  
+            controller = new Controller( );
+
+            controller.SetDisplay( display );
+
+            createdMapParams = CreateMap( );
+            ExportMap(createdMapParams);            
+
+            display.SetGameMap( map );
+
+            base.Initialize();
+        }
+
+        private MapParams CreateMap( )
+        {
             MapCreator mapc = new MapCreator( );
 
             mapc.mapParams.seed = 1;
 
-            GameMap newMap = mapc.CreateMap( );
+            map = mapc.CreateMap( );
 
-            Texture2D tex = MapExport.TexFromMap( GraphicsDevice, newMap );
+            return mapc.mapParams;
+        }
+
+        private void ExportMap(MapParams mapParams)
+        {
+            Texture2D tex = MapExport.TexFromMap( GraphicsDevice, map );
 
             Directory.CreateDirectory( "Maps/Tests/create" );
 
-            using( FileStream file = File.Open( "Maps/Tests/create/map.png", FileMode.Create ) )
+            using( FileStream file = File.Open( "Maps/Tests/create/map" + mapParams.seed + ".png", FileMode.Create ) )
             {
-                tex.SaveAsPng( file, 200, 200 );
+                tex.SaveAsPng( file, mapParams.size.X, mapParams.size.Y );
             }
-
-            base.Initialize();
         }
 
         /// <summary>
@@ -60,10 +85,7 @@ namespace ScapWars
         /// </summary>
         protected override void LoadContent()
         {
-            // Create a new SpriteBatch, which can be used to draw textures.
-            spriteBatch = new SpriteBatch(GraphicsDevice);
 
-            // TODO: use this.Content to load your game content here
         }
 
         /// <summary>
@@ -72,7 +94,7 @@ namespace ScapWars
         /// </summary>
         protected override void UnloadContent()
         {
-            // TODO: Unload any non ContentManager content here
+            
         }
 
         /// <summary>
@@ -86,7 +108,7 @@ namespace ScapWars
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
                 this.Exit();
 
-            // TODO: Add your update logic here
+            controller.ProcessInput( Keyboard.GetState( ) );
 
             base.Update(gameTime);
         }
@@ -99,7 +121,7 @@ namespace ScapWars
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
-            // TODO: Add your drawing code here
+            display.Draw( );
 
             base.Draw(gameTime);
         }

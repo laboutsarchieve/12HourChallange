@@ -112,11 +112,19 @@
     <Compile Include="Map\MapCreator.cs" />
     <Compile Include="Map\MapParams.cs" />
     <Compile Include="Map\MapExport.cs" />
+    <Compile Include="Map\ObjectPlacer.cs" />
     <Compile Include="Noise2D\PerlinNoise2D.cs" />
     <Compile Include="Noise2D\SimpleNoise2D.cs" />
+    <Compile Include="Object\Boulder.cs" />
+    <Compile Include="Object\DestructibleObject.cs" />
+    <Compile Include="Object\Factory.cs" />
+    <Compile Include="Object\TileObject.cs" />
+    <Compile Include="Object\Tree.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Game.cs" />
+    <Compile Include="View\Controller.cs" />
+    <Compile Include="View\Display.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Game.ico" />

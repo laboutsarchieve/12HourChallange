@@ -1,6 +1,78 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <XnaContent xmlns:Pipeline="Microsoft.Xna.Framework.Content.Pipeline">
   <Asset Type="Pipeline:BuildItemCollection">
+    <Item>
+      <Source>Dirt.png</Source>
+      <Name>Dirt</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>Z:\Data\C#\XNA\Experiments\ScapWars\ScapWars\ScapWars\bin\x86\Out\Content\Dirt.xnb</Output>
+      <Time>2012-01-06T02:13:22.397017-08:00</Time>
+    </Item>
+    <Item>
+      <Source>Grass.png</Source>
+      <Name>Grass</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>Z:\Data\C#\XNA\Experiments\ScapWars\ScapWars\ScapWars\bin\x86\Out\Content\Grass.xnb</Output>
+      <Time>2012-01-06T02:13:22.4010172-08:00</Time>
+    </Item>
+    <Item>
+      <Source>Lava.png</Source>
+      <Name>Lava</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>Z:\Data\C#\XNA\Experiments\ScapWars\ScapWars\ScapWars\bin\x86\Out\Content\Lava.xnb</Output>
+      <Time>2012-01-06T02:13:22.4040174-08:00</Time>
+    </Item>
+    <Item>
+      <Source>Sand.png</Source>
+      <Name>Sand</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>Z:\Data\C#\XNA\Experiments\ScapWars\ScapWars\ScapWars\bin\x86\Out\Content\Sand.xnb</Output>
+      <Time>2012-01-06T02:13:22.3890166-08:00</Time>
+    </Item>
+    <Item>
+      <Source>Water.png</Source>
+      <Name>Water</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>Z:\Data\C#\XNA\Experiments\ScapWars\ScapWars\ScapWars\bin\x86\Out\Content\Water.xnb</Output>
+      <Time>2012-01-06T02:13:22.3940168-08:00</Time>
+    </Item>
+    <Item>
+      <Source>BadTree.png</Source>
+      <Name>BadTree</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>Z:\Data\C#\XNA\Experiments\ScapWars\ScapWars\ScapWars\bin\x86\Out\Content\BadTree.xnb</Output>
+      <Time>2012-01-06T02:50:56.2229285-08:00</Time>
+    </Item>
+    <Item>
+      <Source>Volcano.png</Source>
+      <Name>Volcano</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>Z:\Data\C#\XNA\Experiments\ScapWars\ScapWars\ScapWars\bin\x86\Out\Content\Volcano.xnb</Output>
+      <Time>2012-01-06T02:37:07.8595488-08:00</Time>
+    </Item>
+    <Item>
+      <Source>Boulder.png</Source>
+      <Name>Boulder</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>Z:\Data\C#\XNA\Experiments\ScapWars\ScapWars\ScapWars\bin\x86\Out\Content\Boulder.xnb</Output>
+      <Time>2012-01-06T02:53:26.9175477-08:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <TargetPlatform>Windows</TargetPlatform>
@@ -13,6 +85,30 @@
       <OutputDirectory>Z:\Data\C#\XNA\Experiments\ScapWars\ScapWars\ScapWars\bin\x86\Out\Content\</OutputDirectory>
     </Settings>
     <Assemblies>
+      <Assembly>
+        <Key>Z:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.XImporter.dll</Key>
+        <Value>2010-08-23T12:41:18-07:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>Z:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.VideoImporters.dll</Key>
+        <Value>2010-08-23T12:41:18-07:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>Z:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.TextureImporter.dll</Key>
+        <Value>2010-08-23T12:41:18-07:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>Z:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.FBXImporter.dll</Key>
+        <Value>2010-08-23T12:41:18-07:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>Z:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.EffectImporter.dll</Key>
+        <Value>2010-08-23T12:41:18-07:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>Z:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.AudioImporters.dll</Key>
+        <Value>2010-08-23T12:41:18-07:00</Value>
+      </Assembly>
       <Assembly>
         <Key>Z:\Windows\Microsoft.Net\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\v4.0_4.0.0.0__842cf8be1de50553\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>
         <Value>2011-09-14T03:38:11.0894013-07:00</Value>
