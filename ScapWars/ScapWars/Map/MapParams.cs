@@ -25,5 +25,7 @@ namespace ScapWars.Map
         public int maxRiverLength;
 
         public int volcanoRadius;
+
+        public int minDistBossSpawn;
     }
 }

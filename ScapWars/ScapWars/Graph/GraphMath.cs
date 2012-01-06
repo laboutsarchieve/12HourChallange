@@ -2,18 +2,19 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Microsoft.Xna.Framework;
 
 namespace Graph
 {
     static class GraphMath
     {
-        /// <summary>
-        /// Finds a point in between two points, a and b
-        /// </summary>
-        /// <param name="a">The first point</param>
-        /// <param name="b">The seconds point</param>
-        /// <param name="amountGreaterThanA">The amount more than a the value is</param>
-        /// <returns>The values between A and B</returns>
+        static public double DistanceBetweenPoints( Point A, Point B )
+        {
+            int X = B.X - A.X;
+            int Y = B.Y - A.Y;
+
+            return Math.Sqrt(Math.Pow(X,2) + Math.Pow(Y,2));
+        }
         static public double CosineInterpolate( double a, double b, double amountGreaterThanA )
         {
             double angle = amountGreaterThanA * Math.PI; 
@@ -22,15 +23,10 @@ namespace Graph
 
             return a * (1.0 - weightOfB) + b*weightOfB;
         }
-        /// <summary>
-        /// Calculates and returns the adverage of a and b
-        /// </summary>
-        /// <param name="a">The First Point</param>
-        /// <param name="b">The Second Point</param>
-        /// <returns>The value between a and b</returns>
+
         static public double LinearInterpolate( double a, double b )
         {
-            return (a + b)/2.0; // Average of a and b
+            return (a + b)/2.0;
         }
     }
 }

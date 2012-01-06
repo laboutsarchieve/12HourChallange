@@ -5,6 +5,7 @@ using System.Text;
 using Microsoft.Xna.Framework;
 
 using Noise2D;
+using Graph;
 
 namespace ScapWars.Map
 {
@@ -40,6 +41,8 @@ namespace ScapWars.Map
             mapParams.maxRivers = 3;
 
             mapParams.volcanoRadius = 10;
+
+            mapParams.minDistBossSpawn = 100;
         }
 
         public GameMap CreateMap( )    
@@ -51,6 +54,8 @@ namespace ScapWars.Map
             CreateBasics( newMap );
             AddRivers( newMap );
             CreateBossVolcano( newMap );
+
+            SetSpawn( newMap );
 
             return newMap;
         }
@@ -209,6 +214,21 @@ namespace ScapWars.Map
 
         private void SetSpawn( GameMap newMap )
         {
+            const int TIMEOUT = 500;
+            int trys = 0;
+
+            Point spawn;
+
+            do
+            {
+                spawn = new Point(rng.Next(0, newMap.Size.X-1),rng.Next(0, newMap.Size.Y-1));
+                trys++;
+            }
+            while( newMap.GetTile(spawn) != Tile.Water &&
+                   GraphMath.DistanceBetweenPoints( spawn, newMap.BossPoint ) > mapParams.minDistBossSpawn &&
+                   trys < TIMEOUT );
+                   
+            newMap.SpawnPoint = spawn;            
         }
     }
 }
