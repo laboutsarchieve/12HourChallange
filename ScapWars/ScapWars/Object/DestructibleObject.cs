@@ -5,7 +5,7 @@ using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace ScapWars.Object
+namespace ScrapWars.Object
 {
     abstract class DestructibleObject : TileObject
     {

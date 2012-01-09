@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Microsoft.Xna.Framework;
-using ScapWars.Object;
+using ScrapWars.Object;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace ScapWars.Map
+namespace ScrapWars.Map
 {
     enum Tile
     {
@@ -39,8 +39,9 @@ namespace ScapWars.Map
         }
 
         public void AddFactory( Point location )
-        {
-            factoryMap.Add( location, new Factory( location ) );
+        {            
+            if( !factoryMap.ContainsKey( location ) )                
+                factoryMap.Add( location, new Factory( location ) );
         }
 
         public Tile GetTile( Point loc )

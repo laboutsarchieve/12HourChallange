@@ -6,7 +6,7 @@ using Microsoft.Xna.Framework;
 
 using Noise2D;
 
-namespace ScapWars.Map
+namespace ScrapWars.Map
 {
     class MapCreator
     {
@@ -43,8 +43,10 @@ namespace ScapWars.Map
 
             mapParams.minDistBossSpawn = 100;
 
-            mapParams.percentGrassForested = .1;
-            mapParams.percentDirtBoulder = .1;
+            mapParams.percentGrassForested = .05;
+            mapParams.percentDirtBoulder = .05;
+
+            mapParams.numFactories = 6;
         }
 
         public GameMap CreateMap( )    

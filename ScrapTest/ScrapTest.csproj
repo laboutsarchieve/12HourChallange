@@ -63,13 +63,13 @@
     <Shadow Include="Test References\ScrapWars.accessor" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ScapWars\ScapWarsContent\ScapWarsContent.contentproj">
+    <ProjectReference Include="..\ScapWars\ScapWarsContent\ScrapWarsContent.contentproj">
       <Project>{47EF11C5-E47D-4BE6-8E83-FEB101FA6FCF}</Project>
-      <Name>ScapWarsContent %28Content%29</Name>
+      <Name>ScrapWarsContent %28Content%29</Name>
     </ProjectReference>
-    <ProjectReference Include="..\ScapWars\ScapWars\ScapWars.csproj">
+    <ProjectReference Include="..\ScapWars\ScapWars\ScrapWars.csproj">
       <Project>{83812A71-1A05-4A13-AD16-BB379590D2B7}</Project>
-      <Name>ScapWars</Name>
+      <Name>ScrapWars</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

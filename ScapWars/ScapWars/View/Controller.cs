@@ -5,7 +5,7 @@ using System.Text;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework;
 
-namespace ScapWars.View
+namespace ScrapWars.View
 {
     class Controller
     {
@@ -33,7 +33,8 @@ namespace ScapWars.View
             if( keyboardState.IsKeyDown(Keys.Left) )
                 movement.X -= 1;
 
-            display.moveUpperLeft( movement );
+            if( movement != Point.Zero )
+                display.moveUpperLeft( movement );
         }
     }
 }

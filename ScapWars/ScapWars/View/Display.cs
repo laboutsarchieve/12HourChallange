@@ -3,16 +3,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Microsoft.Xna.Framework;
-using ScapWars.Map;
+using ScrapWars.Map;
 using Microsoft.Xna.Framework.Graphics;
-using ScapWars.Object;
+using ScrapWars.Object;
 using Microsoft.Xna.Framework.Content;
+using ScrapWars.Object.Actors;
 
-namespace ScapWars.View
+namespace ScrapWars.View
 {
     class Display
     {
-        const int TEXTURE_SIZE = 64;
+        const int TEXTURE_SIZE = 24;
         const int TILE_SIZE = 24;
 
         Point upperLeft;
@@ -35,34 +36,12 @@ namespace ScapWars.View
 
             LoadTileTextures(content);
             LoadObjectTextures(content);
+            LoadActorTextures(content);
         }
 
         public void SetGameMap( GameMap gameMap )
         {
             map = gameMap;
-        }
-
-        public void LoadTileTextures(ContentManager content)
-        {
-            Texture2D dirt = content.Load<Texture2D>("Dirt");
-            Texture2D grass = content.Load<Texture2D>("Grass");
-            Texture2D sand = content.Load<Texture2D>("Sand");
-            Texture2D water = content.Load<Texture2D>("Water");
-            Texture2D lava = content.Load<Texture2D>("Lava");
-            Texture2D volcano = content.Load<Texture2D>("Volcano");
-
-            tileTextures.Add( Tile.Dirt, dirt );
-            tileTextures.Add( Tile.Grass, grass );
-            tileTextures.Add( Tile.Sand, sand );
-            tileTextures.Add( Tile.Water, water );
-            tileTextures.Add( Tile.Lava, lava );
-            tileTextures.Add( Tile.Volcano, volcano );
-        }
-
-        public void LoadObjectTextures(ContentManager content)
-        {
-            Tree.TreeTexture = content.Load<Texture2D>("BadTree");
-            Boulder.BoulderTexture = content.Load<Texture2D>("Boulder");
         }
 
         public void Draw( )
@@ -72,15 +51,16 @@ namespace ScapWars.View
             spriteBatch.Begin( );
                 DrawTiles(screenInTiles);
                 DrawObjects(screenInTiles);
+                DrawActors(screenInTiles);
             spriteBatch.End( );
         }
 
         public void DrawTiles(Point screenInTiles)
         {
             Texture2D objectTex;
-            for( int x = 0; x < screenInTiles.X && x < map.Size.X; x++ )
+            for( int x = 0; x < screenInTiles.X && upperLeft.X+x < map.Size.X; x++ )
             {
-                for( int y = 0; y < screenInTiles.Y && y < map.Size.Y; y++ )
+                for( int y = 0; y < screenInTiles.Y && upperLeft.Y+y < map.Size.Y; y++ )
                 {
                     objectTex = tileTextures[map.GetTile( new Point(upperLeft.X+x,upperLeft.Y+y))];
 
@@ -100,9 +80,9 @@ namespace ScapWars.View
         public void DrawObjects(Point screenInTiles)
         {
             Texture2D objectTex;
-            for( int x = 0; x < screenInTiles.X && x < map.Size.X; x++ )
+            for( int x = 0; x < screenInTiles.X && x < upperLeft.X+map.Size.X; x++ )
             {
-                for( int y = 0; y < screenInTiles.Y && y < map.Size.Y; y++ )
+                for( int y = 0; y < screenInTiles.Y && upperLeft.Y+y < map.Size.Y; y++ )
                 {
                     objectTex = map.GetTextureOfObject(new Point(upperLeft.X+x,upperLeft.Y+y));
 
@@ -121,6 +101,11 @@ namespace ScapWars.View
 
                 }
             }
+        }
+
+        public void DrawActors(Point screenInTiles)
+        {
+
         }
 
         private Point calcScreenInTiles( )
@@ -153,6 +138,35 @@ namespace ScapWars.View
                 upperLeft.X = map.Size.X-1;
             if( upperLeft.Y > map.Size.Y-1 )
                 upperLeft.Y = map.Size.Y-1;
+        }
+
+        public void LoadTileTextures(ContentManager content)
+        {
+            Texture2D dirt = content.Load<Texture2D>("Dirt");
+            Texture2D grass = content.Load<Texture2D>("Grass");
+            Texture2D sand = content.Load<Texture2D>("Sand");
+            Texture2D water = content.Load<Texture2D>("Water");
+            Texture2D lava = content.Load<Texture2D>("Lava");
+            Texture2D volcano = content.Load<Texture2D>("Volcano");
+
+            tileTextures.Add( Tile.Dirt, dirt );
+            tileTextures.Add( Tile.Grass, grass );
+            tileTextures.Add( Tile.Sand, sand );
+            tileTextures.Add( Tile.Water, water );
+            tileTextures.Add( Tile.Lava, lava );
+            tileTextures.Add( Tile.Volcano, volcano );
+        }
+
+        public void LoadObjectTextures(ContentManager content)
+        {
+            Tree.TreeTexture = content.Load<Texture2D>("BadTree");
+            Boulder.BoulderTexture = content.Load<Texture2D>("Boulder");
+            Factory.FactoryTexture = content.Load<Texture2D>("Factory");
+        }
+
+        public void LoadActorTextures(ContentManager content)
+        {
+            Player.PlayerTexture = content.Load<Texture2D>("Player");
         }
     }
 }

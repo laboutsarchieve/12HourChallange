@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using Microsoft.Xna.Framework;
 using Graph;
-using ScapWars.Object;
+using ScrapWars.Object;
 
-namespace ScapWars.Map
+namespace ScrapWars.Map
 {
     class ObjectPlacer
     {
@@ -72,15 +72,18 @@ namespace ScapWars.Map
 
             while( factoriesPlaced < mapParams.numFactories )
             {
-                currPoint.X = rng.Next( newMap.Size.X-1 );
-                currPoint.X = rng.Next( newMap.Size.Y-1 );
+                currPoint.X = rng.Next( 2, newMap.Size.X-1 );
+                currPoint.Y = rng.Next( 2, newMap.Size.Y-1 );
 
                 if( newMap.GetTile(currPoint) == Tile.Dirt )
                 {
+                    newMap.AddFactory( currPoint );
 
+                    factoriesPlaced++;
                 }
             }
         }
+
 
 
         private void SetSpawn( GameMap newMap )

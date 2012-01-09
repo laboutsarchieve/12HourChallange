@@ -1,6 +1,6 @@
 using System;
 
-namespace ScapWars
+namespace ScrapWars
 {
 #if WINDOWS || XBOX
     static class Program

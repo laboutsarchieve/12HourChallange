@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScapWars", "ScapWars\ScapWars\ScapWars.csproj", "{83812A71-1A05-4A13-AD16-BB379590D2B7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScrapWars", "ScapWars\ScapWars\ScrapWars.csproj", "{83812A71-1A05-4A13-AD16-BB379590D2B7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScapWarsContent", "ScapWars\ScapWarsContent\ScapWarsContent.contentproj", "{47EF11C5-E47D-4BE6-8E83-FEB101FA6FCF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScrapWarsContent", "ScapWars\ScapWarsContent\ScrapWarsContent.contentproj", "{47EF11C5-E47D-4BE6-8E83-FEB101FA6FCF}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScrapTest", "ScrapTest\ScrapTest.csproj", "{4542901D-E244-4B51-9557-D2E4D43BD774}"
 EndProject

@@ -5,7 +5,7 @@ using System.Text;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework;
 
-namespace ScapWars.Object
+namespace ScrapWars.Object
 {
     class Boulder : DestructibleObject
     {

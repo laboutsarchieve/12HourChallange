@@ -7,7 +7,7 @@
     <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ScapWars</RootNamespace>
+    <RootNamespace>ScrapWars</RootNamespace>
     <AssemblyName>ScrapWars</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <TargetFrameworkProfile>Client</TargetFrameworkProfile>
@@ -107,6 +107,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Object\Actors\MovementType.cs" />
+    <Compile Include="Object\Actors\Player.cs" />
     <Compile Include="Graph\GraphMath.cs" />
     <Compile Include="Map\GameMap.cs" />
     <Compile Include="Map\MapCreator.cs" />
@@ -131,8 +133,8 @@
     <Content Include="GameThumbnail.png" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ScapWarsContent\ScapWarsContent.contentproj">
-      <Name>ScapWarsContent %28Content%29</Name>
+    <ProjectReference Include="..\ScapWarsContent\ScrapWarsContent.contentproj">
+      <Name>ScrapWarsContent %28Content%29</Name>
       <XnaReferenceType>Content</XnaReferenceType>
       <Project>{47EF11C5-E47D-4BE6-8E83-FEB101FA6FCF}</Project>
     </ProjectReference>

@@ -8,7 +8,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>Z:\Data\C#\XNA\Experiments\ScapWars\ScapWars\ScapWars\bin\x86\Out\Content\Dirt.xnb</Output>
-      <Time>2012-01-06T02:13:22.397017-08:00</Time>
+      <Time>2012-01-08T23:31:39.58342-08:00</Time>
     </Item>
     <Item>
       <Source>Grass.png</Source>
@@ -17,7 +17,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>Z:\Data\C#\XNA\Experiments\ScapWars\ScapWars\ScapWars\bin\x86\Out\Content\Grass.xnb</Output>
-      <Time>2012-01-06T02:13:22.4010172-08:00</Time>
+      <Time>2012-01-08T23:32:36.1686565-08:00</Time>
     </Item>
     <Item>
       <Source>Lava.png</Source>
@@ -26,7 +26,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>Z:\Data\C#\XNA\Experiments\ScapWars\ScapWars\ScapWars\bin\x86\Out\Content\Lava.xnb</Output>
-      <Time>2012-01-06T02:13:22.4040174-08:00</Time>
+      <Time>2012-01-08T23:32:53.1496278-08:00</Time>
     </Item>
     <Item>
       <Source>Sand.png</Source>
@@ -35,7 +35,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>Z:\Data\C#\XNA\Experiments\ScapWars\ScapWars\ScapWars\bin\x86\Out\Content\Sand.xnb</Output>
-      <Time>2012-01-06T02:13:22.3890166-08:00</Time>
+      <Time>2012-01-08T23:33:10.2586064-08:00</Time>
     </Item>
     <Item>
       <Source>Water.png</Source>
@@ -44,7 +44,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>Z:\Data\C#\XNA\Experiments\ScapWars\ScapWars\ScapWars\bin\x86\Out\Content\Water.xnb</Output>
-      <Time>2012-01-06T02:13:22.3940168-08:00</Time>
+      <Time>2012-01-08T23:33:09.2245472-08:00</Time>
     </Item>
     <Item>
       <Source>BadTree.png</Source>
@@ -53,7 +53,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>Z:\Data\C#\XNA\Experiments\ScapWars\ScapWars\ScapWars\bin\x86\Out\Content\BadTree.xnb</Output>
-      <Time>2012-01-06T02:50:56.2229285-08:00</Time>
+      <Time>2012-01-08T23:36:28.8939676-08:00</Time>
     </Item>
     <Item>
       <Source>Volcano.png</Source>
@@ -62,7 +62,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>Z:\Data\C#\XNA\Experiments\ScapWars\ScapWars\ScapWars\bin\x86\Out\Content\Volcano.xnb</Output>
-      <Time>2012-01-06T02:37:07.8595488-08:00</Time>
+      <Time>2012-01-08T23:33:11.0416511-08:00</Time>
     </Item>
     <Item>
       <Source>Boulder.png</Source>
@@ -71,7 +71,43 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>Z:\Data\C#\XNA\Experiments\ScapWars\ScapWars\ScapWars\bin\x86\Out\Content\Boulder.xnb</Output>
-      <Time>2012-01-06T02:53:26.9175477-08:00</Time>
+      <Time>2012-01-08T23:34:42.4378787-08:00</Time>
+    </Item>
+    <Item>
+      <Source>Factory.png</Source>
+      <Name>Factory</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>Z:\Data\C#\XNA\Experiments\ScapWars\ScapWars\ScapWars\bin\x86\Out\Content\Factory.xnb</Output>
+      <Time>2012-01-08T23:37:45.4923488-08:00</Time>
+    </Item>
+    <Item>
+      <Source>Player.png</Source>
+      <Name>Player</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>Z:\Data\C#\XNA\Experiments\ScapWars\ScapWars\ScapWars\bin\x86\Out\Content\Player.xnb</Output>
+      <Time>2012-01-09T00:21:45.7713641-08:00</Time>
+    </Item>
+    <Item>
+      <Source>LandDrone.png</Source>
+      <Name>LandDrone</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>Z:\Data\C#\XNA\Experiments\ScapWars\ScapWars\ScapWars\bin\x86\Out\Content\LandDrone.xnb</Output>
+      <Time>2012-01-08T23:50:32.0861955-08:00</Time>
+    </Item>
+    <Item>
+      <Source>SkyDrone.png</Source>
+      <Name>SkyDrone</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>Z:\Data\C#\XNA\Experiments\ScapWars\ScapWars\ScapWars\bin\x86\Out\Content\SkyDrone.xnb</Output>
+      <Time>2012-01-08T23:57:05.8887197-08:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>

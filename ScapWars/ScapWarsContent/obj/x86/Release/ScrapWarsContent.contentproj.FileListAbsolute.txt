@@ -1,0 +1,1 @@
+Z:\Data\C#\XNA\Experiments\ScapWars\ScapWars\ScapWarsContent\obj\x86\Release\ResolveAssemblyReference.cache

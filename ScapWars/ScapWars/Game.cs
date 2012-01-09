@@ -9,12 +9,12 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 
-using ScapWars.Map;
+using ScrapWars.Map;
 using System.IO;
-using ScapWars.View;
-using ScapWars.Object;
+using ScrapWars.View;
+using ScrapWars.Object;
 
-namespace ScapWars
+namespace ScrapWars
 {
     /// <summary>
     /// This is the main type for your game

@@ -5,7 +5,7 @@ using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace ScapWars.Object
+namespace ScrapWars.Object
 {
     class Tree : DestructibleObject
     {
@@ -14,7 +14,7 @@ namespace ScapWars.Object
         static Texture2D treeTexture;
 
         public Tree( Point centerTile ) 
-            : base( centerTile, new Point( 1, 1 ), treeTexture, TREE_MAX_HP )
+            : base( centerTile, new Point( 2, 2 ), treeTexture, TREE_MAX_HP )
         {
         }
 

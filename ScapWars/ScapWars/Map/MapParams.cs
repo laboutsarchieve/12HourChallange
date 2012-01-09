@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using Microsoft.Xna.Framework;
 
-namespace ScapWars.Map
+namespace ScrapWars.Map
 {
     class MapParams
     {
