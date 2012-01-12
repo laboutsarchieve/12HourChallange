@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace ScrapWars.Object.Actors
+namespace ScrapWars.Items
 {
     enum MoveQuality
     {

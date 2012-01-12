@@ -107,7 +107,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Object\Actors\MovementType.cs" />
+    <Compile Include="Items\Core.cs" />
+    <Compile Include="Items\Head.cs" />
+    <Compile Include="Items\LeftArm.cs" />
+    <Compile Include="Items\Legs.cs" />
+    <Compile Include="Items\Part.cs" />
+    <Compile Include="Items\RightArm.cs" />
+    <Compile Include="Items\Shoulders.cs" />
+    <Compile Include="Items\MovementType.cs" />
     <Compile Include="Object\Actors\Player.cs" />
     <Compile Include="Graph\GraphMath.cs" />
     <Compile Include="Map\GameMap.cs" />

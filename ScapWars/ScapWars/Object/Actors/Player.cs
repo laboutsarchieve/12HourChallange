@@ -6,6 +6,8 @@ using ScrapWars.Object;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
+using ScrapWars.Items;
+
 namespace ScrapWars.Object.Actors
 {
     class Player : TileObject
@@ -13,7 +15,13 @@ namespace ScrapWars.Object.Actors
         static Texture2D playerTexture;
 
         int health;
-        // Parts
+
+        Head head;
+        Core core;
+        Legs legs;
+        LeftArm leftArm;
+        RightArm rightArm;
+        Shoulders shoulders;
 
         public Player( Point position ) : base( position, new Point(2,2), playerTexture )
         {
