@@ -11,7 +11,7 @@ namespace ScrapWars.Object
     {
         int hp;
 
-        public DestructibleObject( Point centerTile, Point size, Texture2D objectTexture, int health ) 
+        public DestructibleObject( Vector2 centerTile, Vector2 size, Texture2D objectTexture, int health ) 
             : base( centerTile, size, objectTexture )
         {
             hp = health;

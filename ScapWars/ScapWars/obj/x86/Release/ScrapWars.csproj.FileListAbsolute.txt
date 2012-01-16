@@ -16,3 +16,7 @@ Z:\Data\C#\XNA\Experiments\ScapWars\ScapWars\ScapWars\bin\x86\Out\Content\Factor
 Z:\Data\C#\XNA\Experiments\ScapWars\ScapWars\ScapWars\bin\x86\Out\Content\Player.xnb
 Z:\Data\C#\XNA\Experiments\ScapWars\ScapWars\ScapWars\bin\x86\Out\Content\LandDrone.xnb
 Z:\Data\C#\XNA\Experiments\ScapWars\ScapWars\ScapWars\bin\x86\Out\Content\SkyDrone.xnb
+Z:\Data\C#\XNA\Experiments\ScapWars\ScapWars\ScapWars\bin\x86\Out\Content\GameFont.xnb
+Z:\Data\C#\XNA\Experiments\ScapWars\ScapWars\ScapWars\bin\x86\Out\Content\Dummy.xnb
+Z:\Data\C#\XNA\Experiments\ScapWars\ScapWars\ScapWars\bin\x86\Out\Content\BulletOne.xnb
+Z:\Data\C#\XNA\Experiments\ScapWars\ScapWars\ScapWars\bin\x86\Out\Content\Explosion.xnb

@@ -8,12 +8,22 @@ namespace ScrapWars.Items
     class LeftArm : Part
     {
         float swordLength;
-        int swordDamage;
+        int swordDamage;               
 
         public LeftArm( String partName, PartClass partRank, float swordLength, int swordDamage ) : base ( partName, partRank )
         {
             this.swordLength = swordLength;
             this.swordDamage = swordDamage;
+        }
+
+        public float SwordLength
+        {
+            get { return swordLength; }
+        }        
+
+        public int SwordDamage
+        {
+            get { return swordDamage; }
         }
     }
 }

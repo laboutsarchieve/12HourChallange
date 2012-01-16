@@ -11,7 +11,7 @@ namespace ScrapWars.Object
     {
         static Texture2D factoryTexture;
 
-        public Factory(Point center) : base( center, new Point( 5,5 ), factoryTexture )
+        public Factory(Vector2 center) : base( center, new Vector2( 5,5 ), factoryTexture )
         {
         }
 

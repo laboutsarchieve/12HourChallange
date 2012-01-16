@@ -7,7 +7,7 @@ namespace ScrapWars.Items
 {
     enum EnemyScanAbility
     {
-        None,
+        None = 0,
         Poor,
         Good,
         Excellent
@@ -16,12 +16,25 @@ namespace ScrapWars.Items
     {
         EnemyScanAbility enemyScanAbility;
         float missileInterceptionRate;
-        
+                
         public Head( String partName, PartClass partRank, EnemyScanAbility enemyScanAbility, float missileInterceptionRate ) 
             : base ( partName, partRank )
         {
             this.missileInterceptionRate = missileInterceptionRate;
             this.enemyScanAbility = enemyScanAbility;
+        }
+
+        public EnemyScanAbility EnemyScanAbility
+        {
+            get { return enemyScanAbility; }
+            set { enemyScanAbility = value; }
+        }
+        
+
+        public float MissileInterceptionRate
+        {
+            get { return missileInterceptionRate; }
+            set { missileInterceptionRate = value; }
         }
     }
 }

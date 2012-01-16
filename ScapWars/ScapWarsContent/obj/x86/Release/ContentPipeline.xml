@@ -71,7 +71,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>Z:\Data\C#\XNA\Experiments\ScapWars\ScapWars\ScapWars\bin\x86\Out\Content\Boulder.xnb</Output>
-      <Time>2012-01-08T23:34:42.4378787-08:00</Time>
+      <Time>2012-01-13T03:21:15.0262697-08:00</Time>
     </Item>
     <Item>
       <Source>Factory.png</Source>
@@ -108,6 +108,42 @@
       <Options>None</Options>
       <Output>Z:\Data\C#\XNA\Experiments\ScapWars\ScapWars\ScapWars\bin\x86\Out\Content\SkyDrone.xnb</Output>
       <Time>2012-01-08T23:57:05.8887197-08:00</Time>
+    </Item>
+    <Item>
+      <Source>GameFont.spritefont</Source>
+      <Name>GameFont</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+      <Options>None</Options>
+      <Output>Z:\Data\C#\XNA\Experiments\ScapWars\ScapWars\ScapWars\bin\x86\Out\Content\GameFont.xnb</Output>
+      <Time>2012-01-13T04:01:40.7690142-08:00</Time>
+    </Item>
+    <Item>
+      <Source>Dummy.bmp</Source>
+      <Name>Dummy</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>Z:\Data\C#\XNA\Experiments\ScapWars\ScapWars\ScapWars\bin\x86\Out\Content\Dummy.xnb</Output>
+      <Time>2012-01-13T04:20:45.427485-08:00</Time>
+    </Item>
+    <Item>
+      <Source>BulletOne.png</Source>
+      <Name>BulletOne</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>Z:\Data\C#\XNA\Experiments\ScapWars\ScapWars\ScapWars\bin\x86\Out\Content\BulletOne.xnb</Output>
+      <Time>2012-01-13T06:41:24.515341-08:00</Time>
+    </Item>
+    <Item>
+      <Source>Explosion.png</Source>
+      <Name>Explosion</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>Z:\Data\C#\XNA\Experiments\ScapWars\ScapWars\ScapWars\bin\x86\Out\Content\Explosion.xnb</Output>
+      <Time>2012-01-13T07:26:06.0037134-08:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>

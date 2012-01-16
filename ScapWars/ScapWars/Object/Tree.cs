@@ -9,12 +9,12 @@ namespace ScrapWars.Object
 {
     class Tree : DestructibleObject
     {
-        const int TREE_MAX_HP = 100;
+        const int TREE_MAX_HP = 20;
 
         static Texture2D treeTexture;
 
-        public Tree( Point centerTile ) 
-            : base( centerTile, new Point( 2, 2 ), treeTexture, TREE_MAX_HP )
+        public Tree( Vector2 centerTile ) 
+            : base( centerTile, new Vector2( 2, 2 ), treeTexture, TREE_MAX_HP )
         {
         }
 

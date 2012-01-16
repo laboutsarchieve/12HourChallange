@@ -10,3 +10,7 @@ Content\Factory.xnb
 Content\Player.xnb
 Content\LandDrone.xnb
 Content\SkyDrone.xnb
+Content\GameFont.xnb
+Content\Dummy.xnb
+Content\BulletOne.xnb
+Content\Explosion.xnb

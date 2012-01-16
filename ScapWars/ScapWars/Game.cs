@@ -1,3 +1,13 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////
+// This game was produced in Twelve hours. 
+// In the rush to complete as much as possible in as short a time frame as possible, corners were cut.
+// Much of the code is, frankly, aweful. It represnts some of my worst work.
+// Have fun looking though it.
+//
+// Author: Benjamin Sergent
+// Date: Jan 14, 2012
+////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,6 +23,8 @@ using ScrapWars.Map;
 using System.IO;
 using ScrapWars.View;
 using ScrapWars.Object;
+using ScrapWars.Object.Actors;
+using ScrapWars.Data;
 
 namespace ScrapWars
 {
@@ -24,6 +36,7 @@ namespace ScrapWars
         GraphicsDeviceManager graphics;
 
         GameMap map;
+        World gameWorld;
         Display display;
         Controller controller;
 
@@ -31,6 +44,8 @@ namespace ScrapWars
         {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
+
+            IsMouseVisible = true;
         }
 
         /// <summary>
@@ -43,15 +58,21 @@ namespace ScrapWars
         {
             MapParams createdMapParams;
 
-            display = new Display(GraphicsDevice, Content, Window );  
-            controller = new Controller( );
+            PartMenu partsMenu = new PartMenu( );
 
-            controller.SetDisplay( display );
+            display = new Display(GraphicsDevice, Content, Window, partsMenu );  
+            controller = new Controller( partsMenu );            
+            gameWorld = new World( );
 
             createdMapParams = CreateMap( );
             ExportMap(createdMapParams);            
+            
+            gameWorld.MainPlayer = new Player( Vector2.Zero );
+            gameWorld.WorldMap = map;            
 
-            display.SetGameMap( map );
+            display.SetGameWorld( gameWorld );
+            controller.SetDisplay( display );
+            controller.SetWorld( gameWorld );
 
             base.Initialize();
         }
@@ -59,8 +80,6 @@ namespace ScrapWars
         private MapParams CreateMap( )
         {
             MapCreator mapc = new MapCreator( );
-
-            mapc.mapParams.seed = 1;
 
             map = mapc.CreateMap( );
 
@@ -104,11 +123,15 @@ namespace ScrapWars
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Update(GameTime gameTime)
         {
+            float deltaTime = gameTime.ElapsedGameTime.Milliseconds;
             // Allows the game to exit
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
                 this.Exit();
 
-            controller.ProcessInput( Keyboard.GetState( ) );
+            controller.ProcessKeyboard( Keyboard.GetState( ) );
+            controller.ProcessMouse(Mouse.GetState( ), deltaTime );
+            gameWorld.Update( deltaTime );
+            display.Update( deltaTime );
 
             base.Update(gameTime);
         }

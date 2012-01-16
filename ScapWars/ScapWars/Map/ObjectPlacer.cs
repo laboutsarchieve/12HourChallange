@@ -41,7 +41,7 @@ namespace ScrapWars.Map
                         continue;
 
                     if( rng.NextDouble( ) < mapParams.percentGrassForested )
-                        newMap.AddDestructibleObject( new Tree( currPoint ) );
+                        newMap.AddDestructibleObject( new Tree( new Vector2(currPoint.X,currPoint.Y) ) );
                 }
             }
         }
@@ -59,7 +59,7 @@ namespace ScrapWars.Map
                         continue;
 
                     if( rng.NextDouble( ) < mapParams.percentDirtBoulder )
-                        newMap.AddDestructibleObject( new Boulder( currPoint ) );
+                        newMap.AddDestructibleObject( new Boulder( new Vector2(currPoint.X,currPoint.Y) ) );
                 }
             }
         }
@@ -98,10 +98,13 @@ namespace ScrapWars.Map
                 spawn = new Point(rng.Next(0, newMap.Size.X-1),rng.Next(0, newMap.Size.Y-1));
                 trys++;
             }
-            while( newMap.GetTile(spawn) != Tile.Water &&
-                   GraphMath.DistanceBetweenPoints( spawn, newMap.BossPoint ) > mapParams.minDistBossSpawn &&
+            while( newMap.GetTile(spawn) == Tile.Water &&
+                   GraphMath.DistanceBetweenVector2s( spawn, newMap.BossPoint ) > mapParams.minDistBossSpawn &&
                    trys < TIMEOUT );
-                   
+
+            while( newMap.GetTile(spawn) == Tile.Water )
+                spawn = new Point(rng.Next(0, newMap.Size.X-1),rng.Next(0, newMap.Size.Y-1));
+
             newMap.SpawnPoint = spawn;            
         }        
     }

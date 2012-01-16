@@ -26,13 +26,15 @@ namespace ScrapWars.Map
         Point spawnPoint;
         Point bossPoint;  
 
+        Point size;
+
         Dictionary<Point, DestructibleObject> destObjectsMap;
         Dictionary<Point, Factory> factoryMap;
 
         public GameMap( Point size )
         {
             tileMap = new Tile[ size.X, size.Y ];
-            Size = size;            
+            this.size = size;            
 
             destObjectsMap = new Dictionary<Point,DestructibleObject>( );
             factoryMap = new Dictionary<Point,Factory>( );
@@ -41,12 +43,59 @@ namespace ScrapWars.Map
         public void AddFactory( Point location )
         {            
             if( !factoryMap.ContainsKey( location ) )                
-                factoryMap.Add( location, new Factory( location ) );
+                factoryMap.Add( location, new Factory( new Vector2(location.X,location.Y) ) );
         }
 
         public Tile GetTile( Point loc )
         {
             return tileMap[loc.X,loc.Y];
+        }
+
+        public bool IsFactoryHere( Point loc )
+        {
+            const int FACTORY_SIZE = 5;
+
+            for( int x = 0; x < FACTORY_SIZE; x++ )
+            {
+                for( int y = 0; y < FACTORY_SIZE; y++ )
+                {
+                    if( factoryMap.ContainsKey( new Point(loc.X-x, loc.Y-y) ))
+                        return true;
+                }
+            }
+
+            return false;
+        }
+        public bool IsDestructableHere( Point loc )
+        {
+            const int DEST_SIZE = 2;
+
+            for( int x = 0; x < DEST_SIZE; x++ )
+            {
+                for( int y = 0; y < DEST_SIZE; y++ )
+                {
+                    if( destObjectsMap.ContainsKey( new Point(loc.X-x, loc.Y-y) ))
+                        return true;
+                }
+            }
+
+            return false;
+        }
+        public void DamageObject(Point location, int damage)
+        {         
+            const int DEST_SIZE = 2;
+            for( int x = 0; x < DEST_SIZE; x++ )
+            {
+                for( int y = 0; y < DEST_SIZE; y++ )
+                {
+                    if( destObjectsMap.ContainsKey( new Point(location.X-x, location.Y-y) ) )
+                    {
+                        if( destObjectsMap[new Point(location.X-x, location.Y-y)].dealDamage(damage) )
+                            destObjectsMap.Remove(new Point(location.X-x, location.Y-y));
+                    }
+                }
+            }
+            
         }
 
         public Texture2D GetTextureOfObject( Point upperLeft )
@@ -68,13 +117,16 @@ namespace ScrapWars.Map
 
         public void AddDestructibleObject(DestructibleObject theObject)
         {
-            destObjectsMap.Add(theObject.Center, theObject);
+            destObjectsMap.Add(new Point((int)theObject.Center.X,(int)theObject.Center.Y), theObject);
         }
 
-        public void DamageObject(Point location, int damage)
-        {            
-            if( destObjectsMap[location].dealDamage(damage) )
-                destObjectsMap.Remove(location);
+        public bool IsInside(Vector2 vector2)
+        {
+            return ( vector2.X > -1 ||
+                     vector2.Y > -1 ||
+                     vector2.X < size.X ||
+                     vector2.Y < size.Y );
+                
         }
        
         public Point SpawnPoint
@@ -89,6 +141,12 @@ namespace ScrapWars.Map
             set { bossPoint = value; }
         }
 
-        public Point Size{ get; private set; }
+        public Point Size
+        { 
+            get{ return size;} 
+            private set { size = value; }
+        }
+
+        
     }
 }

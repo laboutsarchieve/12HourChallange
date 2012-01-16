@@ -108,13 +108,21 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Items\Core.cs" />
+    <Compile Include="Items\CoreGenerator.cs" />
     <Compile Include="Items\Head.cs" />
+    <Compile Include="Items\HeadGenerator.cs" />
     <Compile Include="Items\LeftArm.cs" />
+    <Compile Include="Items\LeftArmGenerator.cs" />
+    <Compile Include="Items\LegGenerator.cs" />
     <Compile Include="Items\Legs.cs" />
     <Compile Include="Items\Part.cs" />
+    <Compile Include="Items\PartGenerator.cs" />
     <Compile Include="Items\RightArm.cs" />
+    <Compile Include="Items\RightArmGenerator.cs" />
+    <Compile Include="Items\ShoulderGenerator.cs" />
     <Compile Include="Items\Shoulders.cs" />
     <Compile Include="Items\MovementType.cs" />
+    <Compile Include="Object\Actors\Enemy.cs" />
     <Compile Include="Object\Actors\Player.cs" />
     <Compile Include="Graph\GraphMath.cs" />
     <Compile Include="Map\GameMap.cs" />
@@ -125,6 +133,7 @@
     <Compile Include="Noise2D\PerlinNoise2D.cs" />
     <Compile Include="Noise2D\SimpleNoise2D.cs" />
     <Compile Include="Object\Boulder.cs" />
+    <Compile Include="Object\Bullet.cs" />
     <Compile Include="Object\DestructibleObject.cs" />
     <Compile Include="Object\Factory.cs" />
     <Compile Include="Object\TileObject.cs" />
@@ -134,6 +143,8 @@
     <Compile Include="Game.cs" />
     <Compile Include="View\Controller.cs" />
     <Compile Include="View\Display.cs" />
+    <Compile Include="Data\World.cs" />
+    <Compile Include="View\PartMenu.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Game.ico" />

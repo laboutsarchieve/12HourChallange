@@ -9,22 +9,22 @@ namespace ScrapWars.Object
 {
     abstract class TileObject
     {
-        Point center;
-        Point sizeInTiles;
+        protected Vector2 center;
+        Vector2 sizeInTiles;
         Texture2D texture;        
 
-        public TileObject( Point centerTile, Point size, Texture2D objectTexture )
+        public TileObject( Vector2 centerTile, Vector2 size, Texture2D objectTexture )
         {
             center = centerTile;
             sizeInTiles = size;
             texture = objectTexture;
         }
 
-        public Point Center
+        public Vector2 Center
         {
             get { return center; }
         }
-        public Point SizeInTiles
+        public Vector2 SizeInTiles
         {
             get { return sizeInTiles; }
         } 

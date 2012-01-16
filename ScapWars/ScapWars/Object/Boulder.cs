@@ -9,12 +9,12 @@ namespace ScrapWars.Object
 {
     class Boulder : DestructibleObject
     {
-        const int TREE_MAX_HP = 100;
+        const int BOULDER_MAX_HP = 30;
 
         static Texture2D treeTexture;
 
-        public Boulder( Point centerTile  ) 
-            : base( centerTile, new Point( 1, 1 ), treeTexture, TREE_MAX_HP )
+        public Boulder( Vector2 centerTile  ) 
+            : base( centerTile, new Vector2( 2, 2 ), treeTexture, BOULDER_MAX_HP )
         {
         }
 

@@ -8,7 +8,7 @@ namespace Graph
 {
     static class GraphMath
     {
-        static public double DistanceBetweenPoints( Point A, Point B )
+        static public double DistanceBetweenVector2s( Point A, Point B )
         {
             int X = B.X - A.X;
             int Y = B.Y - A.Y;
